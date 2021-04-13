@@ -1,14 +1,20 @@
 import React, { memo } from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import useTheme from "../hooks/useTheme";
 
 export default memo((props: any) => {
   const colorScheme = useTheme();
   const fontColor = colorScheme.colors.text;
-  const { style = {} } = props;
+  const secondaryText = colorScheme.colors.secondaryText;
+  const { style = {}, secondary = false } = props;
+
+  const color = secondary ? secondaryText : fontColor;
+
   return (
-    <Text {...props} style={{ color: fontColor, ...style }}>
-      {props.children}
-    </Text>
+    <View>
+      <Text {...props} style={{ color, ...style }}>
+        {props.children}
+      </Text>
+    </View>
   );
 });

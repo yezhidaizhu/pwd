@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, ScrollView, Alert } from "react-native";
-import { Input as SInput, SocialIcon, Button } from "react-native-elements";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 import { Fumi } from "react-native-textinput-effects";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import Blank from "../components/Blank";
 import useTheme from "../hooks/useTheme";
 import Textarea from "react-native-textarea";
 
@@ -16,7 +14,15 @@ type PWD = {
   remarks?: string;
 };
 
-export default ({ setData, account }: { setData: any; account: PWD }) => {
+export default ({
+  setData,
+  account,
+  inputkey = "input",
+}: {
+  setData: any;
+  account: PWD;
+  inputkey?: any;
+}) => {
   const colorScheme = useTheme();
   const fontColor = colorScheme.colors.text;
   const secondaryText = colorScheme.colors.secondaryText;
@@ -25,31 +31,36 @@ export default ({ setData, account }: { setData: any; account: PWD }) => {
   return (
     <View>
       <Input
+        key={`${inputkey}_title`}
         label="名称"
         iconName={"pricetags"}
-        autoFocus
         onChangeText={setData("title")}
         defaultValue={account.title}
+        autoFocus
       />
       <Input
+        key={`${inputkey}_name`}
         label="用户名"
         iconName={"person"}
         onChangeText={setData("name")}
         defaultValue={account.name}
       />
       <Input
+        key={`${inputkey}_phone`}
         label="手机号码"
         iconName={"call"}
         onChangeText={setData("phone")}
         defaultValue={account.phone}
       />
       <Input
+        key={`${inputkey}_mail`}
         label="邮箱"
         iconName={"mail"}
         onChangeText={setData("mail")}
         defaultValue={account.mail}
       />
       <Input
+        key={`${inputkey}_password`}
         label="密码"
         iconName={"key"}
         onChangeText={setData("password")}
@@ -63,6 +74,7 @@ export default ({ setData, account }: { setData: any; account: PWD }) => {
       >
         <Text style={{ ...styles.remark, color: secondaryText }}>备注</Text>
         <Textarea
+          key={`${inputkey}_remarks`}
           style={{ ...styles.textarea, color: fontColor }}
           onChangeText={setData("remarks")}
           defaultValue={account.remarks}

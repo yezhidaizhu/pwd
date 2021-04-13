@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/react-native-action-sheet": "^3.9.0",
     "@react-native-async-storage/async-storage": "^1.14.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.9.3",
@@ -19,6 +20,7 @@
     "console-browserify": "^1.1.0",
     "constants-browserify": "^1.0.0",
     "crypto-js": "^4.0.0",
+    "dayjs": "^1.10.4",
     "dns.js": "^1.0.1",
     "domain-browser": "^1.1.1",
     "events": "^1.0.0",

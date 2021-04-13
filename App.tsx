@@ -1,25 +1,21 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, useColorScheme } from "react-native";
-import {
-  DarkTheme,
-  DefaultTheme,
-  NavigationContainer,
-} from "@react-navigation/native";
+import { StyleSheet, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Setting from "./screens/Setting";
 import useTheme from "./hooks/useTheme";
 import Home from "./screens/Home";
-import Col from "./screens/Col";
 import Add from "./screens/Add";
+import SetKey from "./screens/SetKey";
+import Edit from "./screens/Edit";
+import ImportPwd from "./screens/ImportPwd";
 
 const Stack = createStackNavigator();
 const Screen = Stack.Screen;
 
 export default function App() {
   const colorScheme = useTheme();
-  const isDarkTheme = colorScheme.dark;
   return (
     <NavigationContainer theme={colorScheme}>
       <Stack.Navigator>
@@ -28,9 +24,11 @@ export default function App() {
           options={settingIcon(colorScheme)}
           component={Home}
         />
-        <Stack.Screen name="Col" component={Col} />
         <Stack.Screen name="Add" component={Add} />
+        <Stack.Screen name="Edit" component={Edit} />
         <Stack.Screen name="Setting" component={Setting} />
+        <Stack.Screen name="KEY" component={SetKey} />
+        <Stack.Screen name="ImportPwd" component={ImportPwd} />
       </Stack.Navigator>
     </NavigationContainer>
   );

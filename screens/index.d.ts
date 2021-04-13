@@ -6,4 +6,5 @@ export type PWD = {
   password?: string;
   remarks?: string;
   uId?: string;
+  created?: string;
 };

@@ -40,3 +40,17 @@ const dc = (key: string, ciphertext: string) => {
   const newStr = pre + end;
   return newStr;
 };
+
+// 普通加解密
+export async function _encrypt(password: string, data: any) {
+  const key = pkey(password);
+  const ciphertext = await CryptoJS.AES.encrypt(data, key).toString();
+  return ciphertext;
+}
+
+export async function _decrypt(password: string, encrypted: any) {
+  const key = pkey(password);
+  let bytes = await CryptoJS.AES.decrypt(encrypted, key);
+  let decrypted = bytes.toString(CryptoJS.enc.Utf8);
+  return decrypted;
+}

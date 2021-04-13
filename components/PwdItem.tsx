@@ -15,13 +15,15 @@ export default ({
   account,
   colorScheme,
   onDelete,
+  onEdit,
 }: {
   account: PWD;
   colorScheme: any;
   onDelete: Function;
+  onEdit: Function;
 }) => {
   const [expanded, setExpanded] = useState(true);
-  const { title, name, phone, password, mail, remarks, uId } = account;
+  const { title, name, phone, password, mail, remarks, uId, created } = account;
 
   const direction = directionIcon[expanded ? 0 : 1];
 
@@ -40,6 +42,9 @@ export default ({
     {
       text: "修改",
       type: "primary",
+      onPress: () => {
+        onEdit(uId);
+      },
     },
   ];
 
@@ -71,6 +76,11 @@ export default ({
           <ListItem.Subtitle>
             <Text style={{ color: secondaryTextColor }}>{_name}</Text>
           </ListItem.Subtitle>
+          <View>
+            <Text style={{ textAlign: "right", color: leftBorderColor }}>
+              {created || "无时间记录"}
+            </Text>
+          </View>
         </ListItem.Content>
         <ListItem.Chevron
           name={direction}
@@ -101,11 +111,6 @@ export default ({
                 )}
               </Text>
             </View>
-          </View>
-          <View>
-            <Text style={{ textAlign: "right", color: leftBorderColor }}>
-              2021/03/23 13:06
-            </Text>
           </View>
         </View>
       </Collapsible>

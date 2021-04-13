@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "pwd",
-    "slug": "pwd",
+    "name": "ziFeiK",
+    "slug": "ziFeiK",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "zi.fei.k"
     },
     "web": {
       "favicon": "./assets/favicon.png"
